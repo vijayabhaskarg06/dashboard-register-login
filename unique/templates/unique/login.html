@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Scholarship Adda 🎓</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #cce7ff, #f5e4c3); /* light sky + light wood */
+  }
+
+  .login-container {
+    background: #ffffff; /* white card for contrast */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 35px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+
+  .logo h1 {
+    color: #8b5e3c; /* wood color for logo */
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Georgia', serif;
+  }
+
+  .logo-icon {
+    background: #cce7ff; /* light sky blue icon */
+    color: #8b5e3c;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .login-header h2 {
+    color: #8b5e3c; /* wood color heading */
+    font-size: 22px;
+    margin: 18px 0 6px;
+    font-weight: 600;
+  }
+
+  .login-header p {
+    color: #6c757d;
+    font-size: 14px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+    text-align: left;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #8b5e3c; /* wood color labels */
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #d9c7ad; /* soft wood border */
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: #fffaf0; /* light wood background */
+    color: #8b5e3c;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: #cce7ff;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(204, 231, 255, 0.3);
+  }
+
+  .password-container {
+    position: relative;
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    font-size: 14px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #8b5e3c;
+  }
+
+  .remember-me input {
+    accent-color: #cce7ff;
+  }
+
+  .forgot-password {
+    color: #cce7ff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 14px;
+    background: #8b5e3c; /* wood color button */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(139, 94, 60, 0.3);
+  }
+
+  .login-btn:hover {
+    background: #a17355;
+    transform: translateY(-1px);
+  }
+
+  .register-link {
+    margin-top: 22px;
+    font-size: 14px;
+    color: #6c757d;
+  }
+
+  .register-link a {
+    color: #cce7ff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+
+  .security-notice {
+    background: #fff5e6;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 22px;
+    border-left: 4px solid #cce7ff;
+    font-size: 13px;
+    color: #8b5e3c;
+    text-align: left;
+  }
+
+  @media (max-width: 480px) {
+    .login-container {
+      padding: 28px 24px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="login-container">
+  <div class="logo">
+    <h1> Scholarship Adda 🎓</h1>
+  </div>
+  
+  <div class="login-header">
+    <h2>Student Login</h2>
+    <p>Access your Scholarship Adda account</p>
+  </div>
+  
+  <form id="loginForm">
+    <div class="form-group">
+      <label for="username">Username or Email</label>
+      <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username or email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="password">Password</label>
+      <div class="password-container">
+        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+        <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+      </div>
+    </div>
+    
+    <div class="form-options">
+      <label class="remember-me">
+        <input type="checkbox" name="remember"> Remember me
+      </label>
+      <a href="#" class="forgot-password">Forgot password?</a>
+    </div>
+    
+    <button type="submit" class="login-btn">Sign In</button>
+  </form>
+  
+  <div class="register-link">
+    Don't have an account? <a href="{% url 'rege' %}">Register</a>
+  </div>
+  
+  <div class="security-notice">
+    <strong>Note:</strong> Login securely to <span style="color:#cce7ff; font-weight:600;">Scholarship Adda 🎓</span>.
+  </div>
+</div>
+
+<script>
+function togglePassword() {
+  const passwordInput = document.getElementById('password');
+  const toggleButton = document.querySelector('.toggle-password');
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    toggleButton.textContent = '🔒';
+  } else {
+    passwordInput.type = 'password';
+    toggleButton.textContent = '👁️';
+  }
+}
+
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  if (username && password) {
+    alert('Login successful! (Demo)');
+    document.getElementById('loginForm').reset();
+  } else {
+    alert('Please fill in all fields');
+  }
+});
+</script>
+</body>
+</html>
